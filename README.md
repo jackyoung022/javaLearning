@@ -811,3 +811,16 @@ public static Result divide(int a, int b){
 }
 ```
 
+## 异常
+
+- Java异常处理方式：
+  - 方法声明位置上，使用throws关键字，异常上抛
+  - 使用try...catch语句进行异常捕捉 
+
+```java
+public static void doSome() throws ClassNotFoundException{
+    //doSome()方法在执行过程中，有可能会出现ClassNotFoundException，属于编译异常
+    //编译过程中，会出现编译错误，需要提前对异常进行预先处理。
+}
+```
+
