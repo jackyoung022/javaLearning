@@ -847,3 +847,31 @@ try{
 
 - 可以使用多个catch，建议使用catch精确得处理
 - catch需要按子-->父的类型，从小到大捕捉
+
+```java
+String msg = exception.getMessage();//获取异常简单的描述信息
+exception.printStackTrace();//打印异常追踪的堆栈信息，是多线程处理的
+```
+
+```java
+try{
+    doSome();
+}catch(Exception e){
+    e.printStackTrace();
+}
+```
+
+### finally
+
+- 在finally子句中的代码是最后执行的，并且是一定会执行的，即使try语句块中的代码出现了异常
+- 通常在finally语句块中完成资源的释放/关闭
+- try...finally
+
+```java
+try{
+    doSome();
+}finally{
+    doOther();
+}
+```
+
