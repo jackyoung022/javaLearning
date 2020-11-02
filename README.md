@@ -824,3 +824,26 @@ public static void doSome() throws ClassNotFoundException{
 }
 ```
 
+```java
+try{
+    FileInputStream fis = new FileInputStream("D:\\code\\javaLearning\\README.md");
+   } catch (IOException e){ //多态： IOException e = new FileNotFoundException();
+     	System.out.println("文件不存在");
+   }
+```
+
+- catch后面可以用具体类型，也可以跟父类型
+
+```java
+try{
+      FileInputStream fis = new FileInputStream("D:\\code\\javaLearning\\README.md");
+      fis.read();  
+} catch (FileNotFoundException e){ 
+	System.out.println("文件不存在");
+}catch (IOException I){
+    System.out.println("读取文件错误")
+}
+```
+
+- 可以使用多个catch，建议使用catch精确得处理
+- catch需要按子-->父的类型，从小到大捕捉
