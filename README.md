@@ -875,3 +875,22 @@ try{
 }
 ```
 
+### 自定义异常
+
+```java
+public class MyException01 extends Exception{
+    //编译时异常
+    public MyException01(){}
+    public MyException01(String s){
+        super(s);
+    }
+}
+public class MyException02 extends RuntimeException{
+    //运行时异常
+    public MyException02(){}
+    public MyException02(String s){
+        super(s);
+    }
+}
+```
+
