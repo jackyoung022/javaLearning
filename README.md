@@ -1038,3 +1038,13 @@ if(it.hasNext())
   Object o = it.next();
 ```
 
+### contains()
+
+- `boolean contains(Object o);`
+- 底层调用equals方法，进行遍历内容对比
+- 放在集合中的引用对象，如果要使用contains方法，需要重写类中的equals方法
+
+### remove()
+
+- remove也会调用equals方法
+
