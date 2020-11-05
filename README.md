@@ -894,3 +894,13 @@ public class MyException02 extends RuntimeException{
 }
 ```
 
+### 异常方法覆盖
+
+- 重写后的方法不能比重写之前的方法抛出更多（更宽泛）的异常，可以更少。
+
+## 集合
+
+### 概述
+
+- 用于容纳其他数据
+- 
