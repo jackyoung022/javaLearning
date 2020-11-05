@@ -903,4 +903,43 @@ public class MyException02 extends RuntimeException{
 ### 概述
 
 - 用于容纳其他数据
-- 
+- 集合不能直接存储基本数据类型，另外集合不能直接存储java对象（集合中存储的是引用）
+
+```java
+list.add(100);//此处存在自动装箱 int-->Integer
+```
+
+- 在java中每一个不同的集合，底层会对应不同的数据结构，往不同的集合中存储数据，等于将数据放到了不同的数据结构中
+- java.util.*
+- 存在两种存储方式
+  - 以单个元素存储的，超级父类接口：java.util.Collection;
+  - 以键值对存储的，超级父类接口：java.util.Map;
+- Collection会调用父类Iterable的iterator方法，进行元素迭代。
+
+### 集合类继承关系
+
+- Iterable <-- Collection
+- Iterable{ iterator() }
+- iterator(){ hasNext(); next(); remove(); }
+
+### List
+
+- 有序可重复，存储的元素有下标
+- ArrayList
+  - 数组实现
+  - **非线程安全**
+- LinkedList
+  - 双向链表
+- Vector
+  - 数组实现
+  - **线程安全**：所有方法都被`synchronized`修饰，但是效率低
+
+### Set
+
+- 无序不可重复，没有下标
+- HashSet
+  - HashMap实现
+
+- TreeSet
+  - TreeMap实现
+  - TreeMap是二叉树
