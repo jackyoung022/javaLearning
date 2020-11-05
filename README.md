@@ -940,6 +940,101 @@ list.add(100);//此处存在自动装箱 int-->Integer
 - HashSet
   - HashMap实现
 
-- TreeSet
-  - TreeMap实现
-  - TreeMap是二叉树
+- SortedSet
+  - 继承Set，无序不可重复，但是元素自动排序
+  - 子类TreeSet
+    - 继承自SortedSet
+    - TreeMap实现
+    - TreeMap是二叉树
+
+### Map
+
+- 与Collection没关系
+- 以key和value键值对的方式存储
+- key和value都是存储java对象的内存地址
+- key无序不重复 
+- HashMap
+  - 非线程安全
+  - 哈希表
+- Hashtable
+  - 线程安全
+  - 哈希表
+  - 属性类Properties
+    - key和value必须是String
+- 子接口SortedMap
+  - key无序不重复，但是自动排序
+  - 子类TreeMap
+    - 二叉树
+
+### Collection常用方法
+
+- Collection没有使用范型之前，可以存放Object的所有子类。使用范型之后，只能存放范性的类型。
+
+- 常用方法
+
+  - `boolean add(E e);`
+
+  ```java
+  Collection c = new ArrayList();//Collection是个接口，无法直接实例化，需要															//使用Collection的子类来实现。
+  c.add(12);//自动装箱
+  c.add('s');
+  c.add(new Object);
+  ```
+
+  - `int size();`
+
+    ```java
+    System.out.print("collection c size:" + c.size());
+    ```
+
+  -  `void clear();`
+
+    ```java
+    c.clear();
+    ```
+
+  - `boolean contains(Object a);`
+
+    ```java
+    boolean f = c.contains(12);
+    ```
+
+  - `boolean isEmpty();`
+
+    ```java
+    boolean f = c.isEmpty();
+    ```
+
+  - `boolean remove(Object o);`
+
+    ```java
+    c.remove(12);
+    ```
+
+  - `Object[] toArray()`
+
+    ```java
+    Object O = c.toArray();
+    ```
+
+    
+
+### 集合遍历
+
+```java
+Collection c = new HashSet();
+c.add(100);
+c.add("123");
+c.add(new Object());
+
+Iterator it = c.iterator();
+```
+
+- `boolean hasNext();`
+- `E next();`
+
+```java
+if(it.hasNext())
+  Object o = it.next();
+```
+
