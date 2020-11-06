@@ -927,12 +927,29 @@ list.add(100);//此处存在自动装箱 int-->Integer
 - 有序可重复，存储的元素有下标
 - ArrayList
   - 数组实现
+    - 优点：查询效率高，因为空间地址连续
+    - 缺点：增删效率低，数组无法存储大数据量
+    - 向末尾添加元素效率高
   - **非线程安全**
+  - 初始化容量10
+  - 扩容一次扩为原容量的1.5倍
+  - 
 - LinkedList
   - 双向链表
+  - 链表
+    - 优点：随机增删效率高，因为空间地址不连续
+    - 缺点：查询效率低
 - Vector
   - 数组实现
   - **线程安全**：所有方法都被`synchronized`修饰，但是效率低
+- List特有方法：
+  - `void add(int index, E Element)`
+  - `E get(int index)`
+  - `int indexOf(Object o)`
+  - `int lastIndexOf(Object o)`
+  - `E remove(int index)`
+  - `E set(int index, E Element)`
+  - 
 
 ### Set
 
@@ -1038,6 +1055,8 @@ if(it.hasNext())
   Object o = it.next();
 ```
 
+- 只要集合中元素发生了改变，迭代器就得重新再获取
+
 ### contains()
 
 - `boolean contains(Object o);`
@@ -1047,4 +1066,6 @@ if(it.hasNext())
 ### remove()
 
 - remove也会调用equals方法
+- 迭代过程中，不能使用remove方法，因为会使集合元素发生改变
+- 迭代器Iterator类中有remove方法，可以删除迭代器指向的元素
 
