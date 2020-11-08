@@ -942,6 +942,11 @@ list.add(100);//此处存在自动装箱 int-->Integer
 - Vector
   - 数组实现
   - **线程安全**：所有方法都被`synchronized`修饰，但是效率低
+  - 初始化容量10
+  - 宽容是双倍扩容
+  - 将一个线程不安全类转化成线程安全类
+    - java.util.Collections 工具类
+    - ` Collecitons.synchronizedList(myList);`
 - List特有方法：
   - `void add(int index, E Element)`
   - `E get(int index)`
@@ -982,6 +987,20 @@ list.add(100);//此处存在自动装箱 int-->Integer
   - key无序不重复，但是自动排序
   - 子类TreeMap
     - 二叉树
+
+##### Map常用方法
+
+- `void vlear();`
+- ` boolean containsKey(Object key);`
+- `boolean containsValue(Object value);`
+- ` V get(Object key);`
+- ` boolean isEmpty();`
+- ` Set<K> keySet();`
+- ` V put(K key, V value);`
+- `V remove(Object key);`
+- ` int size();`
+- ` Collection<V> values();`
+- `Set<Map.Entry<K,V>> entrySet();`
 
 ### Collection常用方法
 
@@ -1069,3 +1088,18 @@ if(it.hasNext())
 - 迭代过程中，不能使用remove方法，因为会使集合元素发生改变
 - 迭代器Iterator类中有remove方法，可以删除迭代器指向的元素
 
+## 泛型
+
+- Generic
+- 好处：
+  - 集合中存储的数据类型统一
+  - 从集合中取出的元素类型是泛型指定的类型，不需要进行大量的“向下转型”
+- 缺点：
+  - 导致集合中存储的约束缺乏多样性
+- JDK8之后引入自动推断机制，又称为钻石表达式
+
+```java
+List<Animal> myList = new ArrayList<>(); //后面的泛型部分可以不写，编译器自动推断
+```
+
+- 自定义泛型，经常使用的类型名称E(Element)和T(Type)
