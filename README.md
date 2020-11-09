@@ -975,20 +975,60 @@ list.add(100);//此处存在自动装箱 int-->Integer
 - 以key和value键值对的方式存储
 - key和value都是存储java对象的内存地址
 - key无序不重复 
-- HashMap
-  - 非线程安全
-  - 哈希表
+
+#### HashMap
+
+- 非线程安全
+
+- 哈希表/散列表 
+
 - Hashtable
   - 线程安全
   - 哈希表
   - 属性类Properties
     - key和value必须是String
-- 子接口SortedMap
-  - key无序不重复，但是自动排序
-  - 子类TreeMap
-    - 二叉树
 
-##### Map常用方法
+```java
+  //HashMap底层源码
+  public class HashMap{
+    Node<K,V>[] table;//底层实际是一个一维数组
+    static class Node<K,V>{
+      final int hash;//哈希值 key的hashCode()方法的结果
+      final K key;//
+      V value;
+      Node<K,V> next;
+    }
+  }
+```
+
+- `map.put(k,v)`实现原理
+
+  - 将k和v封装成Node
+  - 通过调用k的hashCode()方法，得出hash值，通过哈希算法将hash值转化成为数组的下标
+  - 如果数组下标的位置没有链表，则将Node加在该下标位置；如果数组下标的位置有Node，则会使用k和链表上的所有k进行equals对比，如果全都返回false，则会将该Node加在链表的末尾；如果返回了true，则会替换掉旧的Node
+
+- `map.get(k)`实现原理
+  - 调用hashCode()，获取k的hash值
+  - 通过hash算法获取对应的下标
+  - 如果下标位置上什么都没有，返回null
+  - 如果下标位置有链表，则使用k与链表的Node的k进行equals比对，如果全部返回false，则返回null；如果返回了true，则返回该Node
+- **注意**
+
+  - 同一个链表上的hash值是相同的
+  - 要重写hashCode方法，是散列分布均匀
+  - 一个类的equals方法重写了，则hashCode方法也一定要重写，并且，equals方法返回true时，hashCode的返回值得一样
+
+- HashMap的默认数组大小是16，默认加载因子是0.75（当容量达到75%时，数组开始扩容），**初始化容量必须是2的幂数**
+
+- JDK8之后的HashMap，如果单向链表的长度超过8，则会调整链表为红黑树。当红黑树节点数小于6时，会退化为单向链表
+
+#### 子接口SortedMap
+
+- key无序不重复，但是自动排序
+- 子类TreeMap
+  - 二叉树
+
+#### Map常用方法
 
 - `void vlear();`
 - ` boolean containsKey(Object key);`
