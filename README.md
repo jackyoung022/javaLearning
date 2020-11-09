@@ -960,14 +960,21 @@ list.add(100);//此处存在自动装箱 int-->Integer
 
 - 无序不可重复，没有下标
 - HashSet
-  - HashMap实现
-
+  
+- HashMap实现
+  
 - SortedSet
   - 继承Set，无序不可重复，但是元素自动排序
   - 子类TreeSet
     - 继承自SortedSet
+    
     - TreeMap实现
+    
     - TreeMap是二叉树
+    
+    - 对自定义类型不能排序，需要制定排序规则，Comparable
+    
+      
 
 ### Map
 
@@ -1041,6 +1048,13 @@ list.add(100);//此处存在自动装箱 int-->Integer
 - ` int size();`
 - ` Collection<V> values();`
 - `Set<Map.Entry<K,V>> entrySet();`
+
+#### Properties
+
+- properties是一个Map集合，继承Hashtable，Properties的key和value都是String
+- 是线程安全的
+- `setProperty(String key, String value)`
+- `String value = getProperty(String key)`
 
 ### Collection常用方法
 
