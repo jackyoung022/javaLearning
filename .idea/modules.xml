@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/GenericTest/GenericTest.iml" filepath="$PROJECT_DIR$/GenericTest/GenericTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaLearning.iml" filepath="$PROJECT_DIR$/.idea/JavaLearning.iml" />
       <module fileurl="file://$PROJECT_DIR$/MapTest/MapTest.iml" filepath="$PROJECT_DIR$/MapTest/MapTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TreeSetTest/TreeSetTest.iml" filepath="$PROJECT_DIR$/TreeSetTest/TreeSetTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/hashMapTest/hashMapTest.iml" filepath="$PROJECT_DIR$/hashMapTest/hashMapTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaLearning.iml" filepath="$PROJECT_DIR$/javaLearning.iml" />
     </modules>
