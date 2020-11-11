@@ -963,18 +963,21 @@ list.add(100);//此处存在自动装箱 int-->Integer
   
 - HashMap实现
   
-- SortedSet
-  - 继承Set，无序不可重复，但是元素自动排序
-  - 子类TreeSet
-    - 继承自SortedSet
-    
-    - TreeMap实现
-    
-    - TreeMap是二叉树
-    
-    - 对自定义类型不能排序，需要制定排序规则，Comparable
-    
-      
+
+#### SortedSet
+
+- 继承Set，无序不可重复，但是元素自动排序
+- 子类TreeSet
+  - 继承自SortedSet
+  - TreeMap实现
+  - TreeMap是平衡二叉树
+  - 对自定义类型不能排序，需要制定排序规则，Comparable
+- TreeSet或者TreeMap想要在插入数据时进行排序，有两种方法：
+- 实现Java.lang.Comparable接口
+  - 在构造TreeSet或者TreeMap的时候传入一个比较器对象
+- Comparable和Comparator如何选择
+  - 如果比较器经常改变，推荐使用Comparator接口
+  - 如果比较规则只有一个或者不经常改变，推荐使用Comparable
 
 ### Map
 
@@ -1033,7 +1036,8 @@ list.add(100);//此处存在自动装箱 int-->Integer
 
 - key无序不重复，但是自动排序
 - 子类TreeMap
-  - 二叉树
+  - 自平衡二叉树
+  - Iterator 中序遍历
 
 #### Map常用方法
 
