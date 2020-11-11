@@ -1111,7 +1111,10 @@ list.add(100);//此处存在自动装箱 int-->Integer
     Object O = c.toArray();
     ```
 
-    
+### 集合工具类Collections
+
+- `Collections.synchronizedList(List l);` 把ArrayList转为线程安全的
+- `Collections.sort(List l)`排序
 
 ### 集合遍历
 
@@ -1161,3 +1164,45 @@ List<Animal> myList = new ArrayList<>(); //后面的泛型部分可以不写，�
 ```
 
 - 自定义泛型，经常使用的类型名称E(Element)和T(Type)
+
+## IO流
+
+- I：input
+- O：output
+- java.io.*
+
+- 两种读取方法：
+  - 按字节读
+  - 按字符读
+- 四大家族（都是抽象类）
+  - java.io.InputStream  字节输入流
+  - java.io.OutputStream 字节输出流
+  - java.io.Reader 字符输入流
+  - java.io.Writer   字符输出流
+  - 所有流都实现了java.io.Closeable接口，都是可关闭的，都有close()方法
+  - 所有的输出流都实现了java.io.Flushable接口，都是可刷新的，都有flush()方法，输出流在最终输出之后，一定要flush(),清空管道
+  - **注意**：以Stream结尾的都是字节流，以Reader/Writer结尾的都是字符流
+
+- 需要掌握的流：
+  - 文件流
+    - `FileInputStream`
+    - `FileOutputStream`
+    - `FileReader`
+    - `FileWriter`
+  - 转换（字节流转换为字符流）
+    - `InputStreamReader`
+    - `OutputStreamWriter`
+  - 缓冲流
+    - `BufferedReader`
+    - `BufferedWriter`
+    - `BufferedInputStream`
+    - `BufferedOutputStream`
+  - 数据流
+    - `DataInputStream`
+    - `DataOutputStream`
+  - 对象专属流
+    - `ObjectInputStream`
+    - `ObjectOutputStream`
+  - 标准输出流
+    - `PrintWriter`
+    - `PrintStream`
