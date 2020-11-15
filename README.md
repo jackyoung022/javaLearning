@@ -1215,8 +1215,34 @@ List<Animal> myList = new ArrayList<>(); //后面的泛型部分可以不写，�
     - `PrintWriter`
     - `PrintStream`
 
-  ## File
+- IO和Properties联合使用
+  - 从硬盘读取数据
+  - 一个很好的设计理念：经常改动的数据单独写入一个文件，使用程序动态读取
+  - 类似以上机制的文件成为属性配置文件
+    - 内容格式：`key=value`
+    - java规范中建议使用`.properties`结尾
 
-  - File类和IO流没关系，不能完成文件的读和写
-  - File代表文件和目录路径的抽象表示形式
+- File类和IO流没关系，不能完成文件的读和写
+- File代表文件和目录路径的抽象表示形式
 
+### 序列化与反序列化
+
+- 序列化：将java对象保存到硬盘中
+
+- 反序列化：将硬盘中的java对象恢复到内存中
+
+- 要对java对象进行序列化的话，对象需要实现Serializable接口
+
+- Serializable接口只是一个标志接口，只起到一个标志作用，JVM会为该类提供一个序列版本号
+
+  - java语言使用类名与序列化版本号来区分不同的类
+  - 自动生成的版本序列号缺陷：一旦确定代码后，不能进行后续的更改
+  - 建议手动写序列版本号
+
+  ```java
+  private static final long serialVersionUID = 1234567890987654321L;
+  ```
+
+  
+
+- 对象序列化时，不想对某个属性进行操作，可以使用关键字`transient`
